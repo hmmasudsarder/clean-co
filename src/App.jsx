@@ -1,7 +1,12 @@
+import { Outlet } from "react-router-dom";
+import MainLayout from "./Components/Layout/MainLayout";
+
 function App() {
   return (
     <>
-      <h1 className="text-4xl bg-black text-white">Clean Co</h1>
+      <MainLayout>
+        <Outlet/>
+      </MainLayout>
     </>
   );
 }
