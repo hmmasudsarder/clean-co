@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import { NavLink } from "react-router-dom";
 const MainLayout = ({children}) => {
   return (
     <div>
@@ -7,7 +8,8 @@ const MainLayout = ({children}) => {
         <div className="drawer-content flex flex-col">
           {/* Navbar */}
           <div className="w-full navbar bg-base-300">
-            <div className="flex-none lg:hidden">
+           <div className="max-w-[1200px] mx-auto w-full">
+           <div className="flex-none lg:hidden">
               <label
                 htmlFor="my-drawer-3"
                 aria-label="open sidebar"
@@ -30,16 +32,15 @@ const MainLayout = ({children}) => {
             </div>
             <div className="flex-1 px-2 mx-2">Navbar Title</div>
             <div className="flex-none hidden lg:block">
-              <ul className="menu menu-horizontal">
+              <div className="flex gap-5">
                 {/* Navbar menu content here */}
-                <li>
-                  <a>Navbar Item 1</a>
-                </li>
-                <li>
-                  <a>Navbar Item 2</a>
-                </li>
-              </ul>
+                <NavLink to="/about" className={({isActive}) => isActive ? 'btn btn-primary bts-sm' : 'btn btn-ghost bts-sm'}>About</NavLink>
+                <NavLink to="/contact" className={({isActive}) => isActive ? 'btn btn-primary bts-sm' : 'btn btn-ghost bts-sm'}>Contact</NavLink>
+                <NavLink to="/Login" className={({isActive}) => isActive ? 'btn btn-primary bts-sm' : 'btn btn-ghost bts-sm'}>Login</NavLink>
+                <NavLink to="/register" className={({isActive}) => isActive ? 'btn btn-primary bts-sm' : 'btn btn-ghost bts-sm'}>Register</NavLink>
+              </div>
             </div>
+           </div>
           </div>
           {children}
         </div>
@@ -49,15 +50,12 @@ const MainLayout = ({children}) => {
             aria-label="close sidebar"
             className="drawer-overlay"
           ></label>
-          <ul className="menu p-4 w-80 min-h-full bg-base-200">
+          <div className="menu p-4 w-80 min-h-full bg-base-200">
             {/* Sidebar content here */}
-            <li>
-              <a>Sidebar Item 1</a>
-            </li>
-            <li>
-              <a>Sidebar Item 2</a>
-            </li>
-          </ul>
+            <NavLink to="/about" className={({isActive}) => isActive ? 'btn btn-primary' : 'btn btn-ghost bts-sm'}>About</NavLink>
+            <NavLink to="/contact" className={({isActive}) => isActive ? 'btn btn-primary' : 'btn btn-ghost bts-sm'}>Contact</NavLink>
+            <NavLink to="/login" className={({isActive}) => isActive ? 'btn btn-primary' : 'btn btn-ghost bts-sm'}>Login</NavLink>
+          </div>
         </div>
       </div>
     </div>
